@@ -68,7 +68,7 @@ $lintFile = function ($path) use (&$echo, &$context) {
 		$echo("\n");
 	}
 
-	exec("php -l " . escapeshellarg($path) . " 2>&1 1> /dev/null", $output, $code);
+	exec("php -l -n " . escapeshellarg($path) . " 2>&1 1> /dev/null", $output, $code);
 	if ($code) {
 		$context['errors'][] = implode($output);
 		$echo('E');
